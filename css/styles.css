@@ -1,0 +1,18 @@
+main{
+    display: block; /* IE 11 */
+}
+.odd{
+    background-color:#f5f5f5;
+}
+.ok{
+    background-color: green;
+}
+.btn-title{
+    float: right;
+}
+.right-separate{
+    margin-left: 5px;
+}
+.mbottom{
+    margin-bottom: 20px;
+}

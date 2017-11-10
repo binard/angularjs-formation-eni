@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="maBanque" ng-strict-di>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formation Angularjs</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js" defer></script>    
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js" defer></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" defer></script>
+    <script src="app/directives/binMessageDirective.js" defer></script>
+    <script src="app/app.js" defer></script>
+    <script src="app/config.js" defer></script>
+    <script src="app/data.js" defer></script>
+    <script src="app/services/dataLocalService.js" defer></script>
+    <script src="app/services/dataRestService.js" defer></script>
+    <script src="app/filter/filterClient.js" defer></script>
+    <script src="app/filter/filterPager.js" defer></script>    
+    <script src="app/controller.js" defer></script>
+    <script src="app/controller/detailClientController.js" defer></script>
+    <script src="app/controller/clientController.js" defer></script>
+    <script src="app/controller/clientEditController.js" defer></script>
+    <script src="app/controller/homeController.js" defer></script>
+</head>
+<body>
+    <div class="container" ng-controller="demoController">
+        <header>
+            <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#!">
+                            Ma Banque
+                        </a>
+                      </div>
+                  
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                          <li><a href="#!/list">Liste clients</a></li>                         
+                      </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                  </nav>
+            </header>
+            <!-- <div ng-show="InfoMessage" class="alert alert-success" role="alert">{{InfoMessage}}</div> -->
+        <main ng-view>
+            Chargement en cours...
+        </main>
+    </div>
+</body>
+</html>

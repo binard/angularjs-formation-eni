@@ -1,0 +1,20 @@
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Comptes de {{client.prenom + ' ' + client.nom}}
+                <button ng-click="deleteClient()" class="btn btn-default btn-title right-separate"><i class="glyphicon glyphicon-remove"></i> Suppression</button>                
+                <a ng-href="#!/edit/{{client.id}}" class="btn btn-success btn-title"><i class="glyphicon glyphicon-pencil"></i> Edition</a>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <div class="list-group">
+                    <a ng-href="#!/opertations/{{compte.id}}" class="list-group-item" ng-class="{odd : $odd}" ng-repeat="compte in client.comptes | orderBy:['intitule']">
+                        <span class="glyphicon glyphicon-euro"></span>
+                        {{compte.numero}} <strong>{{compte.intitule}}</strong>
+                    </a>
+            </div>
+        </div>
+        </div>        
+    <pre>{{client | json }}</pre>

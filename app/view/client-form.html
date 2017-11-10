@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="clientForm" name="clientForm" ng-submit="save()">
+
+            <div class="form-group has-feedback" ng-class="{ 'has-error' : clientForm.prenom.$touched && clientForm.prenom.$invalid }">
+                <label for="prenom">Prénom</label>
+                <input ng-model="client.prenom" id="prenom" name="prenom" type="text" class="form-control" placeholder="Prénom" aria-describedby="prenomStatus" required />
+                <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{'glyphicon-remove' : clientForm.prenom.$touched && clientForm.prenom.$invalid}" ></span>
+                <span id="prenomStatus" class="sr-only">(error)</span>
+                <div class="text-danger" ng-show="clientForm.prenom.$touched && clientForm.prenom.$invalid">Vous devez saisir un prénom</div>
+            </div>
+
+            <div class="form-group has-feedback" ng-class="{ 'has-error' : clientForm.nom.$touched && clientForm.nom.$invalid }">
+                <label for="nom">Nom</label>
+                <input ng-model="client.nom" id="nom" name="nom" type="text" class="form-control" placeholder="Nom" aria-describedby="nomStatus" required />
+                <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{'glyphicon-remove' : clientForm.nom.$touched && clientForm.nom.$invalid}" ></span>
+                <span id="nomStatus" class="sr-only">(error)</span>
+                <div class="text-danger" ng-show="clientForm.nom.$touched && clientForm.nom.$invalid">Vous devez saisir un nom</div>
+            </div>                
+            
+            <button type="submit" class="btn btn-primary" ng-disabled="clientForm.$invalid">OK</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="maBanque" ng-strict-di>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formation Angularjs</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="app/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" defer></script>
+    <script src="node_modules/underscore/underscore.js" defer></script>
+    <script src="app/app.js" defer></script>
+    <script src="app/data.js" defer></script>
+    <script src="app/services/dataLocalService.js" defer></script>
+    <script src="app/controller.js" defer></script>
+    <script src="app/controller/clientController.js" defer></script>
+</head>
+<body>
+    <div class="container" ng-controller="demoController">        
+        <h1>Ma banque en ligne !</h1>
+        <h2>{{message}}</h2>
+        <p>
+            Hello {{username()}} / {{::testUni}}
+            <button class="btn btn-primary" ng-click="test()">Title to upper</button>
+        </p>
+        <div class="row">
+                <div class="col-sm-3">
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input id="username" type="text" ng-model="username" ng-model-options="{ getterSetter: true}" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+
+                </div>
+        </div>
+    <div ng-controller="ClientController" class="row">        
+        <div class="col-sm-6">
+            <div class="form-group">
+                    <label for="search">Recherche</label>
+                    <input id="search" type="text" ng-model="search" class="form-control" />
+            </div>            
+            <h2>Liste des clients</h2>
+            <div class="list-group">
+                <a ng-href="#/detail/{{client.id}}" class="list-group-item" ng-class="{odd : $odd}" ng-repeat="client in clients | limitTo:10 | filter:{nom:search} | orderBy:['nom', 'prenom']">
+                    <span class="badge">{{client.comptes && client.comptes.length !== 0 ? client.comptes.length + " comptes" : "Aucun compte"}}</span>
+                    <span class="glyphicon glyphicon-user"></span>
+                    {{client.prenom}} {{client.nom | uppercase}}
+                </a>
+            </ul>
+            <p>Prénom : {{client1.prenom}}</p>
+            <p>Prénom : {{$parent.prenom}}</p>
+            <p>Prénom : {{$root.prenom}}</p>
+        </div>
+    </div>
+</body>
+</html>

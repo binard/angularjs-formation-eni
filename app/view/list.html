@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-6">        
+        <div class="form-group">
+            <label for="search">Recherche</label>
+            <input id="search" type="text" ng-model="search" class="form-control" />
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="limit">Limite</label>
+            <input id="limit" type="range" ng-model="limit" class="form-control" min="1" max="{{max}}" />
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <h2>Liste des clients</h2>
+        <div class="mbottom">
+            <a href="#!/edit" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Nouveau client</a>
+        </div>           
+        <div class="list-group">         
+            <a ng-href="#!/detail/{{client.id}}" class="list-group-item" ng-class="{odd : $odd}" ng-repeat="client in clients | filterClient:search | orderBy:['nom', 'prenom'] | filterPager:currentPage:limit">
+                <span class="badge" ng-class="{ok : client.comptes.length > 0}">{{client.comptes && client.comptes.length !== 0 ? client.comptes.length + " comptes" : "Aucun compte"}}</span>
+                <span class="glyphicon glyphicon-user"></span>
+                {{client.nom | uppercase}} {{client.prenom}}
+            </a>
+        </div>      
+        <ul uib-pagination items-per-page="limit" total-items="clients.length" ng-model="currentPage"></ul>
+    </div>
+</div>
